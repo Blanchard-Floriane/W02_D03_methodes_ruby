@@ -1,5 +1,4 @@
 def half_pyramid
-  puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
   print "> "
   stage = gets.chomp.to_i 
   puts "Voici la pyramide :"
@@ -9,7 +8,6 @@ def half_pyramid
 end
 
 def intro
-  puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
   print "> "
   stage = gets.chomp.to_i 
   return stage
@@ -29,13 +27,18 @@ def down_pyramid(stage)
 end
 
 def perform
+  puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
   stage = intro
-  if stage % 2 == 0 #si l'entrée utilisateur est divisible par 2 = chiffre pair
-    puts "Fail \u{1F4A3}\u{1F52A}\u{1F631} Il te fallait entrer un nombre impair !"
-  else
-    puts "Voici la pyramide :"
-    full_pyramid(stage)
-    down_pyramid(stage)
+  loop do
+    if stage % 2 == 0 #si l'entrée utilisateur est divisible par 2 = chiffre pair
+      puts "Fail \u{1F4A3}\u{1F52A}\u{1F631} Il te fallait entrer un nombre impair !"
+      stage = intro #pour éviter une boucle infini il me faut relancer l'intro
+    else
+      puts "Voici la pyramide :"
+      full_pyramid(stage)
+      down_pyramid(stage)
+      break
+    end
   end
 end
 
