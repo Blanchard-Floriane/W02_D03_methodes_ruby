@@ -3,7 +3,7 @@ def signup #définir mot de passe
   print "> "
   password = gets.chomp
   puts "J'espère que tu t'en souviendras... u\{1F608}"
-  10.times do
+  20.times do
     puts ""
   end
   return password #afin de conserver l'info et pour l'utiliser ailleurs dans le programme et/ou ultérieurement
